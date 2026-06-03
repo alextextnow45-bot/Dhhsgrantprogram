@@ -398,6 +398,7 @@
     <a href="index.html">Home</a>
     <a href="apply.html" class="active">Apply</a>
     <a href="status.html">Check Status</a>
+    <a href="admin.html" style="opacity:0.6">Admin</a>
   </div>
 </nav>
 
@@ -699,15 +700,34 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
   /* ─────────────────────────────────────────────────────────────────
-   * EMAILJS CONFIGURATION
-   * 1. Sign up free at https://www.emailjs.com
-   * 2. Create an Email Service (Gmail, Outlook, etc.) → copy Service ID
-   * 3. Create an Email Template → copy Template ID
-   *    Use these variables in your template:
-   *      {{to_email}}  {{to_name}}  {{app_id}}  {{ref_number}}
-   *      {{org_name}}  {{project_title}}  {{amount}}  {{submitted_date}}
-   * 4. Go to Account → copy your Public Key
-   * 5. Replace the three values below
+   * EMAILJS CONFIGURATION  —  3 steps to activate:
+   *
+   * 1. Sign up free at https://emailjs.com (free = 200 emails/month)
+   * 2. Dashboard → Email Services → Add Service (Gmail/Outlook etc.)
+   *    Copy your Service ID below.
+   * 3. Dashboard → Email Templates → Create Template
+   *    Paste this template body:
+   *    ─────────────────────────────────────────────
+   *    Subject: DHHS Grant Application Received – {{app_id}}
+   *
+   *    Dear {{to_name}},
+   *
+   *    Your DHHS grant application has been received.
+   *
+   *    Application ID : {{app_id}}
+   *    Reference #    : {{ref_number}}
+   *    Organization   : {{org_name}}
+   *    Project        : {{project_title}}
+   *    Amount         : {{amount}}
+   *    Submitted      : {{submitted_date}}
+   *
+   *    Track your status at: {{status_url}}
+   *
+   *    The DHHS Grant Review Team
+   *    ─────────────────────────────────────────────
+   *    Set "To Email" field to: {{to_email}}
+   *    Copy your Template ID below.
+   * 4. Account → General → copy Public Key below.
    * ───────────────────────────────────────────────────────────────── */
   const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // ← replace
   const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // ← replace
